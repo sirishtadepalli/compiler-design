@@ -144,6 +144,7 @@ primary:
 	INT_LITERAL |
 	CHAR_LITERAL |
 	REAL_LITERAL |
+	HEX_DEC_LITERAL |
 	IDENTIFIER '(' expression ')' |	
 	IDENTIFIER |
 	NEGOP primary;
