@@ -107,14 +107,14 @@ Terminals, with rules where they appear
     REAL_LITERAL (262) 52
     ADDOP (263) 31 42
     MULOP (264) 32 44
-    REMOP (265) 45
-    EXPOP (266) 47
-    NEGOP (267) 55
-    ANDOP (268) 38
-    OROP (269)
-    NOTOP (270)
-    RELOP (271) 41
-    ARROW (272) 24 37
+    ANDOP (265) 38
+    RELOP (266) 41
+    ARROW (267) 24 37
+    OROP (268)
+    NOTOP (269)
+    REMOP (270) 45
+    EXPOP (271) 47
+    NEGOP (272) 55
     BEGIN_ (273) 19
     CASE (274) 37
     CHARACTER (275) 11
