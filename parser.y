@@ -79,13 +79,13 @@ statement_:
     
 statement:
 	expression |
-	WHEN condition ',' expression ':' expression |
+	WHEN or_choice ',' expression ':' expression |
 	SWITCH expression IS cases OTHERS ARROW statement ';' ENDSWITCH  |
-	IF condition THEN statement ';' elsifs ELSE statement ';' ENDIF |
+	IF or_choice THEN statement ';' elsifs ELSE statement ';' ENDIF |
 	FOLD direction operator list_choice ENDFOLD ;
 
 elsifs:
-	elsifs ELSIF condition THEN statement ';' |
+	elsifs ELSIF or_choice THEN statement ';' |
 	%empty ;
 
 direction:
@@ -106,13 +106,19 @@ cases:
 case:
 	CASE INT_LITERAL ARROW statement ';' ; 
 
-condition:
-	condition ANDOP relation |
+or_choice:
+	or_choice OROP and_condition |
+	and_condition ;
+
+and_condition:
+	
+	and_condition ANDOP relation |
 	relation ;
 
 relation:
-	'(' condition ')' |
-	expression RELOP expression ;
+	'(' or_choice ')' |
+	expression RELOP expression |
+	expression ;
 
 
 expression:
@@ -126,12 +132,15 @@ term:
 	power ;
 
 power:
-   	primary EXPOP power |
+   	not_condition EXPOP power |
+	not_condition ;
+
+not_condition:
+	NOTOP primary |
 	primary ;
 
-
 primary:
-	'(' expression ')' |
+	'(' or_choice ')' |
 	INT_LITERAL |
 	CHAR_LITERAL |
 	REAL_LITERAL |
