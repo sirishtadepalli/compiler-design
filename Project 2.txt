@@ -1,0 +1,26 @@
+//changing the directory in ubuntu
+C:\Users\santh\OneDrive\Desktop\Sirish\School\CompilerDesign\Project2\Project 2 Skeleton Code
+
+//these are all the tokens that I added to the bison file
+%token IDENTIFIER INT_LITERAL CHAR_LITERAL HEX_DEC_LITERAL REAL_LITERAL
+
+%token ADDOP MULOP ANDOP RELOP ARROW OROP NOTOP REMOP EXPOP NEGOP
+
+%token BEGIN_ CASE CHARACTER ELSE END ENDSWITCH FUNCTION INTEGER IS LIST OF OTHERS
+	RETURNS SWITCH WHEN ELSEIF ENDFOLD ENDIF FOLD IF LEFT REAL RIGHT THEN
+
+//this was the main function in the scanner.l file of Project 2
+
+int main() {
+	firstLine();
+	
+	FILE *file = fopen("lexemes.txt", "wa"); 
+	int token = yylex();
+	while (token) {
+		fprintf(file, "%d %s\n", token, yytext);
+		token = yylex();
+	}
+	lastLine();
+	fclose(file);
+	return 0;
+}

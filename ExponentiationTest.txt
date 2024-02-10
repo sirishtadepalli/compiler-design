@@ -1,0 +1,6 @@
+// Arithmetic Operators
+
+function main returns integer;
+begin
+    3 ^ 3;
+end;
