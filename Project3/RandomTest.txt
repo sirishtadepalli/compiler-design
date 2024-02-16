@@ -1,0 +1,5 @@
+function main returns integer;
+begin
+      #aF2 ;
+end;
+
